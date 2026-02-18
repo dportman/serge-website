@@ -582,10 +582,11 @@ a {
 
 .contact-link {
   display: block;
-  font-size: 1.25rem;
+  font-size: clamp(0.95rem, 3.5vw, 1.25rem);
   font-weight: 800;
   color: var(--blue-light);
   margin-bottom: 0.5rem;
+  word-break: break-word;
 }
 
 a.contact-link:hover {
@@ -791,29 +792,57 @@ a.contact-link:hover {
   .nav { display: none; }
   .hamburger { display: block; }
 
-  .hero { padding: 3.5rem 0 4rem; }
-  .hero h1 { font-size: 2rem; }
+  .hero { padding: 3rem 0 3.5rem; }
+  .hero h1 { font-size: 1.9rem; }
+  .hero-sub { font-size: 1rem; }
   .hero-actions { flex-direction: column; }
-  .hero-actions .btn { text-align: center; }
+  .hero-actions .btn {
+    text-align: center;
+    white-space: normal;
+    width: 100%;
+  }
+  .hero-badges { gap: 0.75rem; }
+  .hero-badge { font-size: 0.8rem; }
 
   .about-inner {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
-  .section { padding: 3.5rem 0; }
+  .section { padding: 3rem 0; }
+
+  .contact-card { padding: 1.5rem 1.25rem; }
+
+  /* Prevent iOS Safari from zooming into form fields */
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 1rem;
+  }
 
   .footer-inner {
     flex-direction: column;
     text-align: center;
+    gap: 0.4rem;
+  }
+  .footer-inner > div:nth-child(2) {
+    word-break: break-word;
+    line-height: 1.8;
   }
 }
 
 @media (max-width: 480px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
+  .section { padding: 2.5rem 0; }
+
+  .services-grid { grid-template-columns: 1fr; }
+  .contact-grid  { grid-template-columns: 1fr; }
+
+  .hero h1 { font-size: 1.65rem; }
+
+  .section-title { font-size: 1.5rem; }
+  .section-sub   { font-size: 0.95rem; }
+
+  .ba-side img   { height: 180px; }
+
+  .cta-number    { font-size: 1.4rem; }
 }
