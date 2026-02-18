@@ -27,7 +27,7 @@
         <a href="#before-after">Before &amp; After</a>
         <a href="#gallery">Gallery</a>
         <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#quote">Get a Quote</a>
         <a href="tel:6783344373" class="btn btn-outline">&#128222; (678) 334-4373</a>
       </nav>
       <button class="hamburger" id="hamburger" aria-label="Open menu">&#9776;</button>
@@ -38,6 +38,7 @@
       <a href="#before-after" onclick="closeMobileNav()">Before &amp; After</a>
       <a href="#gallery" onclick="closeMobileNav()">Gallery</a>
       <a href="#about" onclick="closeMobileNav()">About</a>
+      <a href="#quote" onclick="closeMobileNav()">Get a Quote</a>
       <a href="#contact" onclick="closeMobileNav()">Contact</a>
       <a href="tel:6783344373" class="mobile-call">&#128222; (678) 334-4373</a>
     </div>
@@ -51,7 +52,7 @@
       <p class="hero-sub">Expert HVAC service, maintenance, and replacement for homes and businesses. Available when you need us most — 24 hours a day.</p>
       <div class="hero-actions">
         <a href="tel:6783344373" class="btn btn-primary">Call Now &mdash; (678) 334-4373</a>
-        <a href="#services" class="btn btn-ghost">View Services</a>
+        <a href="#quote" class="btn btn-ghost">Request a Quote</a>
       </div>
       <div class="hero-badges">
         <div class="hero-badge">&#9989; Residential &amp; Commercial</div>
@@ -224,10 +225,97 @@
     </div>
   </section>
 
+  <!-- ===== QUOTE FORM ===== -->
+  <section class="section" id="quote">
+    <div class="container">
+      <h2 class="section-title">Request a Quote</h2>
+      <p class="section-sub">Fill out the form below and Serge will get back to you promptly.</p>
+
+      <div class="quote-layout">
+
+        <form
+          class="quote-form"
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST"
+          id="quoteForm"
+        >
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name <span class="required">*</span></label>
+              <input type="text" id="name" name="name" placeholder="John Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number <span class="required">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="(678) 555-0100" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="service">Service Needed <span class="required">*</span></label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Select a service…</option>
+                <option value="Service / Repair">Service / Repair</option>
+                <option value="Maintenance">Maintenance</option>
+                <option value="Replacement / New Install">Replacement / New Install</option>
+                <option value="Emergency">Emergency (24-Hour)</option>
+                <option value="Other">Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="property">Property Type <span class="required">*</span></label>
+              <select id="property" name="property" required>
+                <option value="" disabled selected>Select type…</option>
+                <option value="Residential">Residential</option>
+                <option value="Commercial">Commercial</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Describe the Issue or Job</label>
+            <textarea id="message" name="message" rows="4" placeholder="E.g. My AC unit isn't cooling, making a loud noise, or I'd like a maintenance check before summer…"></textarea>
+          </div>
+
+          <!-- Honeypot spam field -->
+          <input type="text" name="_gotcha" style="display:none" />
+
+          <button type="submit" class="btn btn-primary form-submit">Send Request</button>
+
+          <div class="form-success" id="formSuccess">
+            &#10003; Thanks! Serge will be in touch soon.
+          </div>
+        </form>
+
+        <div class="quote-aside">
+          <div class="quote-aside-card">
+            <div class="contact-icon">&#128222;</div>
+            <p class="cta-label">Need help right now?</p>
+            <p class="cta-number"><a href="tel:6783344373">(678) 334-4373</a></p>
+            <p style="font-size:0.9rem; opacity:0.75; margin-bottom:1.25rem;">Call or text anytime — including 24-hour emergencies.</p>
+            <a href="tel:6783344373" class="btn btn-primary" style="width:100%; text-align:center;">Call Now</a>
+          </div>
+          <ul class="quote-promises">
+            <li>&#9989; Fast response times</li>
+            <li>&#9989; Transparent, upfront pricing</li>
+            <li>&#9989; No obligation estimate</li>
+            <li>&#9989; Residential &amp; commercial</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ===== CONTACT ===== -->
   <section class="section" id="contact">
     <div class="container">
-      <h2 class="section-title">Contact Us</h2>
+      <h2 class="section-title">Contact &amp; Location</h2>
       <p class="section-sub">Reach out by phone — the fastest way to get help.</p>
       <div class="contact-grid">
 
@@ -280,6 +368,36 @@
     });
     function closeMobileNav() {
       mobileNav.classList.remove('open');
+    }
+
+    // Quote form — AJAX submission via Formspree
+    const quoteForm = document.getElementById('quoteForm');
+    const formSuccess = document.getElementById('formSuccess');
+    if (quoteForm) {
+      quoteForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = quoteForm.querySelector('.form-submit');
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+        try {
+          const res = await fetch(quoteForm.action, {
+            method: 'POST',
+            body: new FormData(quoteForm),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            quoteForm.reset();
+            formSuccess.classList.add('visible');
+            btn.style.display = 'none';
+          } else {
+            btn.textContent = 'Error — please call us instead';
+            btn.disabled = false;
+          }
+        } catch {
+          btn.textContent = 'Error — please call us instead';
+          btn.disabled = false;
+        }
+      });
     }
 
     // Smooth scroll for anchor links
