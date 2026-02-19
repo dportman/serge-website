@@ -127,7 +127,7 @@ a {
 }
 
 .logo-img {
-  height: 46px;
+  height: 54px;
   width: auto;
   display: block;
   border-radius: 4px;
@@ -207,16 +207,6 @@ a {
 .hero-content {
   position: relative;
   max-width: 680px;
-}
-
-.hero-logo {
-  height: 120px;
-  width: auto;
-  display: block;
-  margin-bottom: 1.75rem;
-  border-radius: 12px;
-  background: white;
-  padding: 8px 16px;
 }
 
 .badge {
