@@ -480,6 +480,21 @@ a {
   }
 }
 
+.gallery-group-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--blue-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 2.5rem 0 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--gray-200);
+}
+
+.gallery-group-title:first-of-type {
+  margin-top: 0;
+}
+
 /* ===== ABOUT ===== */
 .about-inner {
   display: grid;
