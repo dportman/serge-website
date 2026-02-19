@@ -211,9 +211,9 @@ a {
 
 .badge {
   display: inline-block;
-  background: rgba(249,115,22,0.2);
+  background: rgba(200,24,26,0.2);
   color: var(--red);
-  border: 1px solid rgba(249,115,22,0.4);
+  border: 1px solid rgba(200,24,26,0.4);
   padding: 0.3rem 0.9rem;
   border-radius: 999px;
   font-size: 0.8rem;
@@ -659,7 +659,7 @@ a.contact-link:hover {
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--blue-light);
-  box-shadow: 0 0 0 3px rgba(37, 99, 168, 0.12);
+  box-shadow: 0 0 0 3px rgba(30, 125, 200, 0.12);
 }
 
 .form-group select {
@@ -779,10 +779,6 @@ a.contact-link:hover {
 
 .footer strong {
   color: var(--white);
-}
-
-.logo-icon {
-  color: var(--red);
 }
 
 .footer-copy {
