@@ -121,6 +121,11 @@ a {
   color: var(--white);
 }
 
+.logo a {
+  display: flex;
+  align-items: center;
+}
+
 .logo-img {
   height: 36px;
   width: auto;
