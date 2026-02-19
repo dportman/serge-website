@@ -6,11 +6,11 @@
 }
 
 :root {
-  --blue-dark:   #0f2744;
-  --blue:        #1a4070;
-  --blue-light:  #2563a8;
-  --orange:      #f97316;
-  --orange-dark: #ea6a0a;
+  --blue-dark:   #142858;
+  --blue:        #1a3d8a;
+  --blue-light:  #1e7dc8;
+  --red:         #c8181a;
+  --red-dark:    #a81416;
   --gray-100:    #f4f6f9;
   --gray-200:    #e5e9ef;
   --gray-500:    #6b7a8d;
@@ -67,15 +67,15 @@ a {
 }
 
 .btn-primary {
-  background: var(--orange);
+  background: var(--red);
   color: var(--white);
-  border-color: var(--orange);
+  border-color: var(--red);
 }
 .btn-primary:hover {
-  background: var(--orange-dark);
-  border-color: var(--orange-dark);
+  background: var(--red-dark);
+  border-color: var(--red-dark);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(249,115,22,0.4);
+  box-shadow: 0 4px 12px rgba(200,24,26,0.4);
 }
 
 .btn-outline {
@@ -121,27 +121,13 @@ a {
   color: var(--white);
 }
 
-.logo-icon {
-  font-size: 1.6rem;
-  color: var(--orange);
-}
-
-.logo-name {
+.logo-img {
+  height: 52px;
+  width: auto;
   display: block;
-  font-size: 1.05rem;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-  line-height: 1.1;
-}
-
-.logo-tagline {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--orange);
-  line-height: 1.2;
+  border-radius: 6px;
+  background: white;
+  padding: 3px 8px;
 }
 
 .nav {
@@ -187,7 +173,7 @@ a {
 }
 .mobile-call {
   margin-top: 0.5rem;
-  background: var(--orange);
+  background: var(--red);
   color: var(--white) !important;
   border-radius: var(--radius);
   padding: 0.65rem 1rem !important;
@@ -221,7 +207,7 @@ a {
 .badge {
   display: inline-block;
   background: rgba(249,115,22,0.2);
-  color: var(--orange);
+  color: var(--red);
   border: 1px solid rgba(249,115,22,0.4);
   padding: 0.3rem 0.9rem;
   border-radius: 999px;
@@ -239,7 +225,7 @@ a {
   margin-bottom: 1.1rem;
 }
 
-.accent { color: var(--orange); }
+.accent { color: var(--red); }
 
 .hero-sub {
   font-size: 1.15rem;
@@ -546,7 +532,7 @@ a {
 }
 
 .cta-number a {
-  color: var(--orange);
+  color: var(--red);
 }
 
 .cta-desc {
@@ -605,7 +591,7 @@ a {
 }
 
 a.contact-link:hover {
-  color: var(--orange);
+  color: var(--red);
 }
 
 .contact-card p {
@@ -783,7 +769,7 @@ a.contact-link:hover {
 }
 
 .footer-inner a {
-  color: var(--orange);
+  color: var(--red);
 }
 
 .footer strong {
@@ -791,7 +777,7 @@ a.contact-link:hover {
 }
 
 .logo-icon {
-  color: var(--orange);
+  color: var(--red);
 }
 
 .footer-copy {
